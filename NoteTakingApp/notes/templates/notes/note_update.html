@@ -6,6 +6,7 @@
 
 {% block content %}
 <h3>Update Note</h3>
+<hr>
 <form method="post">
     {% csrf_token %}
     {{form|crispy}}
