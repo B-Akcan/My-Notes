@@ -1,6 +1,6 @@
 # My-Notes
-Note Taking Website. Created with Django.\\
-After download, run "python manage.py runserver" on the command line. Copy the url and paste it to your browser's search bar.\\
+Note Taking Website. Created with Django.\
+After download, run "python manage.py runserver" on the command line. Copy the url and paste it to your browser's search bar.\
 
 ## Notes Page
 ![notes](https://user-images.githubusercontent.com/108730135/227888196-f29e43da-d238-4fa7-87a6-e76048e4459c.png)
