@@ -1,0 +1,15 @@
+{% extends "notes/base.html" %}
+
+{% block title %}My Notes - New Note{% endblock %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<h3>New Note</h3>
+<hr>
+<form method="post">
+    {% csrf_token %}
+    {{form|crispy}}
+    <button type="submit" class="btn btn-success">Create</button>
+</form>
+{% endblock %}

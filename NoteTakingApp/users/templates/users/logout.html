@@ -1,0 +1,11 @@
+{% extends "notes/base.html" %}
+
+{% block title %}My Notes - Logout{% endblock %}
+
+{% block content %}
+<h3>You have been logged out.</h3>
+<hr>
+<small>
+    Login again <a href="{% url 'login' %}">here</a>.
+</small>
+{% endblock %}

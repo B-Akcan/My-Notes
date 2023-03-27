@@ -1,0 +1,14 @@
+h2
+{
+    text-align: left;
+    inline-size: 635px;
+    word-break: break-all;
+}
+#update
+{
+    margin-left: 300px;
+}
+#delete
+{
+    margin-right: -35px;
+}

@@ -1,0 +1,18 @@
+{% extends "notes/base.html" %}
+
+{% block title %}My Notes - Update Note{% endblock %}
+
+{% load static %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'notes/note_delete.css' %}">
+{% endblock %}
+
+{% block content %}
+<h3>Are you sure you want to delete the note "{{note.title}}"?</h3>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger" name="delete" value="delete">Delete</button>
+    <button type="submit" class="btn btn-secondary" name="cancel" value="cancel">Cancel</button>
+</form>
+{% endblock %}

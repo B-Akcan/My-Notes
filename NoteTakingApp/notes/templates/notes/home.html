@@ -1,0 +1,70 @@
+{% extends "notes/base.html" %}
+
+{% block title %}My Notes - Home{% endblock %}
+
+{% load static %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'notes/home.css' %}">
+{% endblock %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        {% if notes %}
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col" class="text-center">Title</th>
+                <th scope="col" class="text-center">Marked</th>
+                <th scope="col" class="text-center"></th>
+                <th scope="col" class="text-center">Date Created</th>
+                <th scope="col" class="text-center"></th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for note in notes %}
+                <tr>
+                    <td class="cell text-center">
+                        <a href="{% url 'note-detail' note.id %}" id="title" class="link-dark link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover">{{note.title}}</a>
+                    </td>
+                    {% if note.marked %}
+                        <td class="cell text-center">Yes</td>
+                    {% else %}
+                        <td class="cell text-center">No</td>
+                    {% endif %}
+                    <td class="cell text-center">
+                        <form method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="noteID" value="{{note.id}}">
+                            {% if note.marked %}
+                                <button type="submit" class="btn btn-outline-light" name="mark" value="mark" id="button">Unmark</button>
+                            {% else %}
+                                <button type="submit" class="btn btn-light" name="mark" value="mark" id="button">Mark</button>
+                            {% endif %}
+                        </form>
+                    </td>
+                    <td class="cell text-center">{{note.date_created|date:"F d, Y g:i A"}}</td>
+                    <td class="cell text-center">
+                        <form method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="noteID" value="{{note.id}}">
+                            <button type="submit" class="btn btn-danger" name="delete" value="delete" id="button">
+                                Delete
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+    {% else %}
+        <h3>Welcome to My Notes!</h3>
+        <hr>
+        <small>Created by Batuhan Akçan.</small>
+        <br>
+        <small>If you want, login <a href="{% url 'login' %}">here</a>.</small>
+        <br>
+        <small>If you don't have an account, create one <a href="{% url 'register' %}">here</a>.</small>
+    {% endif %}
+{% endblock %}

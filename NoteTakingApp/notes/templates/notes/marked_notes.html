@@ -1,0 +1,54 @@
+{% extends "notes/base.html" %}
+
+{% block title %}My Notes - Marked Notes{% endblock %}
+
+{% load static %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'notes/home.css' %}">
+{% endblock %}
+
+{% block content %}
+    {% if notes %}
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col" class="text-center">Title</th>
+            <th scope="col" class="text-center"></th>
+            <th scope="col" class="text-center">Date Created</th>
+            <th scope="col" class="text-center"></th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for note in notes %}
+                {% if note.marked %}
+                <tr>
+                    <td class="cell text-center">
+                        <a href="{% url 'note-detail' note.id %}" id="title" class="link-dark link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover">{{note.title}}</a>
+                    </td>
+                    <td class="cell text-center">
+                        <form method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="noteID" value="{{note.id}}">
+                            <button type="submit" class="btn btn-outline-light" name="mark" value="mark" id="button">
+                                Unmark
+                            </button>
+                        </form>
+                    </td>
+                    <td class="cell text-center" id="date">{{note.date_created|date:"F d, Y g:i A"}}</td>
+                    <td class="cell text-center">
+                        <form method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="noteID" value="{{note.id}}">
+                            <button type="submit" class="btn btn-danger" name="delete" value="delete" id="button">
+                                Delete
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+                {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+{% endblock %}
