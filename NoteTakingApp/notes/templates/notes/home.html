@@ -37,9 +37,9 @@
                             {% csrf_token %}
                             <input type="hidden" name="noteID" value="{{note.id}}">
                             {% if note.marked %}
-                                <button type="submit" class="btn btn-outline-light" name="mark" value="mark" id="button">Unmark</button>
+                                <button type="submit" class="btn btn-outline-primary" name="mark" value="mark" id="button">Unmark</button>
                             {% else %}
-                                <button type="submit" class="btn btn-light" name="mark" value="mark" id="button">Mark</button>
+                                <button type="submit" class="btn btn-primary" name="mark" value="mark" id="button">Mark</button>
                             {% endif %}
                         </form>
                     </td>
