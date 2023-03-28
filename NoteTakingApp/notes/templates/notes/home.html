@@ -25,7 +25,7 @@
                 {% for note in notes %}
                 <tr>
                     <td class="cell text-center">
-                        <a href="{% url 'note-detail' note.id %}" id="title" class="link-dark link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover">{{note.title}}</a>
+                        <a href="{% url 'note-detail' note.id %}" id="title" class="link-dark link-offset-2 link-underline-opacity-50 link-underline-opacity-100-hover">{{note.title}}</a>
                     </td>
                     {% if note.marked %}
                         <td class="cell text-center">Yes</td>
