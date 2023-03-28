@@ -3,10 +3,10 @@ Note Taking Website. Created with Django.\
 After download, run "python manage.py runserver" on the command line. Copy the url and paste it to your browser's search bar.
 
 ## Notes Page
-![notes](https://user-images.githubusercontent.com/108730135/227900200-3c478009-616b-4133-ad39-c9f6dffcc55a.png)
+![notes](https://user-images.githubusercontent.com/108730135/228160105-ae83d89f-6752-4524-8b7c-2c596779514f.png)
 
 ## Marked Notes Page
-![marked](https://user-images.githubusercontent.com/108730135/227900220-45667f80-c7ba-48e7-925c-33640b573d55.png)
+![marked](https://user-images.githubusercontent.com/108730135/228160144-a8e5a049-71a1-40c3-96ca-d2888a6a644a.png)
 
 ## Note Page
 ![note](https://user-images.githubusercontent.com/108730135/227900171-6117266b-758d-47e0-b10d-61b95a5f99fe.png)
