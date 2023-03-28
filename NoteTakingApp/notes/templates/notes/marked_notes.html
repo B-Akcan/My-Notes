@@ -30,7 +30,7 @@
                         <form method="post">
                             {% csrf_token %}
                             <input type="hidden" name="noteID" value="{{note.id}}">
-                            <button type="submit" class="btn btn-outline-light" name="mark" value="mark" id="button">
+                            <button type="submit" class="btn btn-outline-primary" name="mark" value="mark" id="button">
                                 Unmark
                             </button>
                         </form>
